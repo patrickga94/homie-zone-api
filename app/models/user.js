@@ -7,6 +7,17 @@ const userSchema = new mongoose.Schema(
 			required: true,
 			unique: true,
 		},
+		username: {
+			type: String,
+			required: true,
+			unique: true
+		},
+		follows: [{type: String}],
+		followers: [{type: String}],
+		posts: {			
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Post'
+			},
 		hashedPassword: {
 			type: String,
 			required: true,
